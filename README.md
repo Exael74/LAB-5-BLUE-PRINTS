@@ -1,14 +1,22 @@
-# REST API Blueprints — Java 21 / Spring Boot 3.3.x
+# REST API Blueprints - Java 21 / Spring Boot 3.3.x
 
-> ## 📌 SUBMISSION NOTE (please read first)
+> ## SUBMISSION NOTE (please read first)
 > **This project is being pushed to the repository only now.** It was fully
 > developed and kept **on my local machine** because **no Microsoft Teams
 > assignment/submission was ever opened** for this lab. As soon as a place to
 > deliver it was available, I uploaded the complete work. Everything you see
-> here is my own development — nothing is pending.
+> here is my own development - nothing is pending.
 >
 > **Student / Author: STIVEN ESNEIDER PARDO GUTIERREZ**
-> Escuela Colombiana de Ingeniería — Software Architecture (ARSW)
+> Escuela Colombiana de Ingenieria - Software Architecture (ARSW)
+
+### Evidence of local development dates
+
+The screenshot below shows the file "Date modified" timestamps, evidencing that
+this project was developed and kept locally before being uploaded to the
+repository:
+
+![Local development dates evidence - Lab 5](LABORATORIO%205%20EVIDENCIA.png)
 
 ---
 
@@ -20,8 +28,8 @@ in logical layers (model, persistence, services, filters, controllers, config,
 dto) and supports two interchangeable persistence backends selected through
 **Spring profiles**:
 
-- **In-memory** (default) — the app boots with no database.
-- **PostgreSQL** (profile `postgres`) — via Spring Data JPA.
+- **In-memory** (default) - the app boots with no database.
+- **PostgreSQL** (profile `postgres`) - via Spring Data JPA.
 
 ## 2. Architecture
 
@@ -45,12 +53,12 @@ layers are unaware of the storage technology.
 
 | # | Activity | Status |
 |---|----------|--------|
-| 1 | Familiarization with the base code | ✅ Layered structure preserved |
-| 2 | Migration to **PostgreSQL** persistence | ✅ `PostgresBlueprintPersistence` (JPA) selectable by profile |
-| 3 | REST best practices | ✅ Base path `/api/v1/blueprints`, correct HTTP codes, `ApiResponse<T>`, global error handling |
-| 4 | OpenAPI / Swagger | ✅ `springdoc-openapi` + `@Operation` / `@ApiResponses` |
-| 5 | Blueprint **filters** | ✅ Redundancy & Undersampling via profiles |
-| ★ | Bonus | ✅ Actuator (health/info/metrics) + multi-stage Dockerfile |
+| 1 | Familiarization with the base code | Done - layered structure preserved |
+| 2 | Migration to **PostgreSQL** persistence | Done - `PostgresBlueprintPersistence` (JPA) selectable by profile |
+| 3 | REST best practices | Done - base path `/api/v1/blueprints`, correct HTTP codes, `ApiResponse<T>`, global error handling |
+| 4 | OpenAPI / Swagger | Done - `springdoc-openapi` + `@Operation` / `@ApiResponses` |
+| 5 | Blueprint **filters** | Done - Redundancy and Undersampling via profiles |
+| Bonus | Actuator + Docker image | Done - Actuator (health/info/metrics) + multi-stage Dockerfile |
 
 ### Persistence (Activity 2)
 - `persistence/impl/BlueprintEntity` + `PointEmbeddable` map a blueprint to the
@@ -95,7 +103,7 @@ count**.
 
 ## 6. How to run
 
-### In-memory (default — no database needed)
+### In-memory (default - no database needed)
 ```bash
 mvn spring-boot:run
 ```
@@ -138,11 +146,11 @@ Spring Boot Actuator is enabled:
 ```bash
 mvn test
 ```
-- `FiltersTest` — redundancy / undersampling / identity filters.
-- `BlueprintsServicesTest` — CRUD and error paths over in-memory storage.
-- `PostgresPersistenceTest` — JPA persistence over **H2 in PostgreSQL mode**
+- `FiltersTest` - redundancy / undersampling / identity filters.
+- `BlueprintsServicesTest` - CRUD and error paths over in-memory storage.
+- `PostgresPersistenceTest` - JPA persistence over **H2 in PostgreSQL mode**
   (no container required).
-- `BlueprintsSmokeTest` — Spring context load.
+- `BlueprintsSmokeTest` - Spring context load.
 
 **Result: 13 tests, all passing.**
 
@@ -154,4 +162,4 @@ docker run -p 8080:8080 blueprints-api
 ```
 
 ---
-*Author: **STIVEN ESNEIDER PARDO GUTIERREZ** — ARSW, Escuela Colombiana de Ingeniería.*
+Author: **STIVEN ESNEIDER PARDO GUTIERREZ** - ARSW, Escuela Colombiana de Ingenieria.
